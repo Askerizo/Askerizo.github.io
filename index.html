@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASKER | Terminal Portfolio</title>
+    <style>
+        /* Desain Background Web */
+        body {
+            background-color: #121212; /* Background luar gelap biar terminal putihnya ngejreng */
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        /* Desain Jendela Terminal Putih */
+        .terminal-window {
+            background-color: #ffffff; /* Layar Terminal Putih */
+            width: 100%;
+            max-width: 700px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); /* Cahaya hijau (glow) */
+            border: 1px solid #00cc00;
+            margin-top: 20px;
+            height: fit-content;
+        }
+
+        /* Header Terminal ala Mac/Linux */
+        .terminal-header {
+            background-color: #e0e0e0;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #00cc00;
+        }
+
+        .buttons { display: flex; gap: 8px; }
+        .btn { width: 14px; height: 14px; border-radius: 50%; }
+        .btn.red { background-color: #ff5f56; }
+        .btn.yellow { background-color: #ffbd2e; }
+        .btn.green { background-color: #27c93f; }
+
+        .terminal-title {
+            margin-left: 15px;
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        /* Isi Terminal */
+        .terminal-body {
+            padding: 20px;
+            color: #008000; /* Teks Hijau Gelap biar kebaca di background putih */
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .prompt { color: #000000; font-weight: bold; } /* Teks root hitam */
+        .highlight { background-color: #00cc00; color: #ffffff; padding: 0 4px; font-weight: bold;}
+        
+        a { color: #008000; text-decoration: none; border-bottom: 1px dashed #008000; font-weight: bold;}
+        a:hover { background-color: #008000; color: #ffffff; }
+
+        /* ASCII Art Hacker */
+        .ascii-art {
+            font-size: 12px;
+            white-space: pre;
+            color: #00cc00;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-align: left;
+            overflow-x: auto;
+        }
+
+        /* Efek Ngetik & Kursor */
+        #typewriter { white-space: pre-wrap; margin-bottom: 15px; font-weight: bold;}
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2em;
+            background-color: #00cc00;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Garis pemisah hacker */
+        .divider { border-top: 1px dashed #00cc00; margin: 15px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-window">
+        <!-- Bagian Atas Terminal -->
+        <div class="terminal-header">
+            <div class="buttons">
+                <div class="btn red"></div>
+                <div class="btn yellow"></div>
+                <div class="btn green"></div>
+            </div>
+            <div class="terminal-title">root@askerizo:~ /portfolio</div>
+        </div>
+
+        <!-- Bagian Dalam Terminal -->
+        <div class="terminal-body">
+            
+            <div class="ascii-art">
+    ___   _____ __ __ __________ 
+   /   | / ___// //_// ____/ __ \
+  / /| | \__ \/ ,<  / __/ / /_/ /
+ / ___ |___/ / /| |/ /___/ _, _/ 
+/_/  |_/____/_/ |_/_____/_/ |_|  
+            </div>
+
+            <div id="typewriter"></div>
+            <span class="cursor" id="cursor-main"></span>
+
+            <!-- Konten Utama (Awalnya disembunyikan sampai animasi ngetik selesai) -->
+            <div id="main-content" style="display: none;">
+                
+                <p><span class="prompt">askerizo@system:~$</span> whoami</p>
+                <p>Hello, I'm <span class="prompt">Dimas Reksa Pradityo</span>.<br>
+                A Developer & Automation Enthusiast focused on building intelligent systems.</p>
+                
+                <div class="divider"></div>
+
+                <p><span class="prompt">askerizo@system:~$</span> ls -la ./skills</p>
+                <p>
+                    <span class="highlight">Python</span> &nbsp;&nbsp; Bot Automation, Discord.py, AI API Integrations<br>
+                    <span class="highlight">Bash</span> &nbsp;&nbsp;&nbsp;&nbsp; Shell Scripting, VPS Management & Server Deployments<br>
+                    <span class="highlight">Web</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JavaScript, HTML, CSS<br>
+                    <span class="highlight">DB</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQLite, Data Management
+                </p>
+
+                <div class="divider"></div>
+
+                <p><span class="prompt">askerizo@system:~$</span> cat projects.txt</p>
+                <p>
+                    <b>[1] Multi-Model AI Discord Bot</b><br>
+                    Engineered a persistent Discord bot featuring a dynamic AI fallback mechanism (Groq to Gemini). Includes custom CoC API intel tracking and JSON-based scheduling logic.
+                </p>
+                <p>
+                    <b>[2] Script Automation & Logic</b><br>
+                    Developed performance-optimized Lua scripts (Roblox), focusing on aim-assist smoothing algorithms and custom ESP (Highlight) visuals.
+                </p>
+                <p>
+                    <b>[3] Asker Apparel Operations</b><br>
+                    Managed digital payment integrations (QRIS) and operational workflows for a growing brand project.
+                </p>
+
+                <div class="divider"></div>
+
+                <p><span class="prompt">askerizo@system:~$</span> ./connect.sh</p>
+                <p>
+                    > [<a href="https://github.com/Askerizo">GitHub</a>]<br>
+                    > [<a href="https://www.instagram.com/eenvyexe">Instagram</a>]<br>
+                    > [<a href="mailto:askerizors@gmail.com">Email Me</a>]
+                </p>
+
+                <p><span class="prompt">askerizo@system:~$</span> <span class="cursor"></span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Script Animasi Ngetik -->
+    <script>
+        const text = "> Initializing secure connection...\n> Bypassing mainframe...\n> Access Granted.\n> Welcome to the system.";
+        let i = 0;
+        const speed = 40; // Kecepatan ngetik
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            } else {
+                // Sembunyiin kursor utama, tampilin konten
+                document.getElementById("cursor-main").style.display = 'none';
+                document.getElementById("main-content").style.display = 'block';
+            }
+        }
+
+        // Jalankan script saat web dibuka
+        window.onload = function() {
+            setTimeout(typeWriter, 600);
+        };
+    </script>
+
+</body>
+</html>
