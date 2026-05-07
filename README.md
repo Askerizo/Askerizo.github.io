@@ -1,2 +1,2 @@
 # Askerizo.github.io
-web config?
+web configuration
