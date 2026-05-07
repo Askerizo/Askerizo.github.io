@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Askerizo | Modern Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #0b0f19;
@@ -182,7 +183,7 @@
             color: #3b82f6;
         }
 
-        /* Footer */
+        /* Footer & Social Icons */
         footer {
             padding: 40px 5%;
             text-align: center;
@@ -195,19 +196,25 @@
             margin-bottom: 20px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         .social-icons a {
             color: var(--text-dim);
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.6rem; /* Ukuran logonya */
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+            transform: translateY(-5px); /* Efek loncat dikit pas disentuh */
         }
 
         /* Mobile Adjustments */
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
-            .nav-links { display: none; } /* Simpel dulu buat HP */
+            .nav-links { display: none; }
             .btn-group { flex-direction: column; width: 100%; }
             .btn { text-align: center; }
         }
@@ -227,9 +234,11 @@
     <header id="home">
         <div class="badge">Full-Stack Automation Developer</div>
         <h1>Hi, I'm <span>Asker</span></h1>
+        
         <p class="description">
-            I build modern automation systems, responsive bots, and clean digital workflows. Focusing on cutting-edge logic and efficient integrations.
+            Specializing in Bot automation, AI integrations, and custom scripting. I turn complex backend logic into seamless, high-performance digital experiences, making intelligent tools and digital infrastructure that just works.
         </p>
+        
         <div class="btn-group">
             <a href="#projects" class="btn btn-primary">View My Work →</a>
             <a href="https://wa.me/6285695378326" class="btn btn-secondary">Contact Me</a>
@@ -252,7 +261,7 @@
                 <h3>Script Automation</h3>
                 <p>Developed performance-optimized Lua scripts for gaming exploits, focusing on feature-rich player enhancements.</p>
                 <div class="tags">
-                    <span class="tag">#Lua</span>
+                    <span class="tag">#Script</span>
                     <span class="tag">#Exploit</span>
                     <span class="tag">#Logic</span>
                 </div>
@@ -261,7 +270,7 @@
                 <h3>Brand Operations</h3>
                 <p>Managed digital payment integrations and operational workflows for Asker Apparel brand development.</p>
                 <div class="tags">
-                    <span class="tag">#QRIS</span>
+                    <span class="tag">#QR Code</span>
                     <span class="tag">#Workflow</span>
                     <span class="tag">#Management</span>
                 </div>
@@ -271,12 +280,14 @@
 
     <footer id="contact">
         <div class="social-icons">
-            <a href="https://github.com/Askerizo">GitHub</a>
-            <a href="https://discordapp.com/users/973966560110715000">Discord</a>
-            <a href="https://www.instagram.com/eenvyexe">Instagram</a>
+            <a href="https://github.com/Askerizo" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://discordapp.com/users/973966560110715000" title="Discord"><i class="fab fa-discord"></i></a>
+            <a href="https://www.instagram.com/eenvyexe" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6285695378326" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
         <p>&copy; 2026 Askerizo. Powered by Coffee and Python.</p>
     </footer>
 
 </body>
 </html>
+
