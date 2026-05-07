@@ -69,13 +69,13 @@
 
         /* Hero Section */
         header {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 10%;
+            padding: 100px 10% 40px 10%; /* Disesuaikan biar slider gak kepotong */
         }
 
         .badge {
@@ -131,6 +131,42 @@
         }
 
         .btn:hover { opacity: 0.8; transform: translateY(-3px); }
+
+        /* --- SLIDER CSS BARU --- */
+        .slider-container {
+            margin-top: 50px;
+            width: 100%;
+            max-width: 600px;
+            height: 220px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #30363d;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 300%; /* Karena ada 3 gambar */
+            height: 100%;
+            /* Animasi ngeslide tiap 10 detik */
+            animation: autoSlide 12s infinite cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .slider-track img {
+            width: 33.333%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+
+        @keyframes autoSlide {
+            0%, 25% { transform: translateX(0); }          /* Gambar 1 diam */
+            33%, 58% { transform: translateX(-33.333%); }  /* Geser ke Gambar 2 */
+            66%, 91% { transform: translateX(-66.666%); }  /* Geser ke Gambar 3 */
+            100% { transform: translateX(0); }             /* Balik ke Gambar 1 */
+        }
+        /* --- END SLIDER CSS --- */
 
         /* Projects Section */
         section { padding: 80px 5%; }
@@ -202,13 +238,13 @@
         .social-icons a {
             color: var(--text-dim);
             text-decoration: none;
-            font-size: 1.6rem; /* Ukuran logonya */
+            font-size: 1.6rem;
             transition: 0.3s;
         }
 
         .social-icons a:hover {
             color: #fff;
-            transform: translateY(-5px); /* Efek loncat dikit pas disentuh */
+            transform: translateY(-5px);
         }
 
         /* Mobile Adjustments */
@@ -217,6 +253,7 @@
             .nav-links { display: none; }
             .btn-group { flex-direction: column; width: 100%; }
             .btn { text-align: center; }
+            .slider-container { height: 160px; margin-top: 35px; } /* Ukuran slider mengecil di HP */
         }
     </style>
 </head>
@@ -243,7 +280,15 @@
             <a href="#projects" class="btn btn-primary">View My Work →</a>
             <a href="https://wa.me/6285695378326" class="btn btn-secondary">Contact Me</a>
         </div>
-    </header>
+
+        <div class="slider-container">
+            <div class="slider-track">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Bot Automation">
+                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=600&q=80" alt="Lua Scripting">
+                <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=600&q=80" alt="Server Infrastructure">
+            </div>
+        </div>
+        </header>
 
     <section id="projects">
         <h2>Featured Projects</h2>
@@ -261,7 +306,7 @@
                 <h3>Script Automation</h3>
                 <p>Developed performance-optimized Lua scripts for gaming exploits, focusing on feature-rich player enhancements.</p>
                 <div class="tags">
-                    <span class="tag">#Script</span>
+                    <span class="tag">#Lua</span>
                     <span class="tag">#Exploit</span>
                     <span class="tag">#Logic</span>
                 </div>
@@ -270,7 +315,7 @@
                 <h3>Brand Operations</h3>
                 <p>Managed digital payment integrations and operational workflows for Asker Apparel brand development.</p>
                 <div class="tags">
-                    <span class="tag">#QR Code</span>
+                    <span class="tag">#QRIS</span>
                     <span class="tag">#Workflow</span>
                     <span class="tag">#Management</span>
                 </div>
@@ -290,4 +335,5 @@
 
 </body>
 </html>
+
 
