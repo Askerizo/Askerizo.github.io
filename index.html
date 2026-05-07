@@ -3,195 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASKER | Terminal Portfolio</title>
+    <title>Askerizo | Modern Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* Desain Background Web */
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #161b22;
+            --accent-grad: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+            --text-main: #f3f4f6;
+            --text-dim: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #121212; /* Background luar gelap biar terminal putihnya ngejreng */
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: #fff; }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            color: var(--text-dim);
+            max-width: 600px;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--accent-grad);
+            color: white;
+        }
+
+        .btn-secondary {
+            border: 1px solid #374151;
+            color: white;
+        }
+
+        .btn:hover { opacity: 0.8; transform: translateY(-3px); }
+
+        /* Projects Section */
+        section { padding: 80px 5%; }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #30363d;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-10px);
+        }
+
+        .project-card h3 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            color: #3b82f6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid #30363d;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        .social-icons {
+            margin-bottom: 20px;
             display: flex;
             justify-content: center;
-            padding: 15px;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            min-height: 100vh;
+            gap: 20px;
         }
 
-        /* Desain Jendela Terminal Putih */
-        .terminal-window {
-            background-color: #ffffff; /* Layar Terminal Putih */
-            width: 100%;
-            max-width: 700px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); /* Cahaya hijau (glow) */
-            border: 1px solid #00cc00;
-            margin-top: 20px;
-            height: fit-content;
+        .social-icons a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 1.2rem;
         }
 
-        /* Header Terminal ala Mac/Linux */
-        .terminal-header {
-            background-color: #e0e0e0;
-            padding: 10px 15px;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #00cc00;
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .nav-links { display: none; } /* Simpel dulu buat HP */
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { text-align: center; }
         }
-
-        .buttons { display: flex; gap: 8px; }
-        .btn { width: 14px; height: 14px; border-radius: 50%; }
-        .btn.red { background-color: #ff5f56; }
-        .btn.yellow { background-color: #ffbd2e; }
-        .btn.green { background-color: #27c93f; }
-
-        .terminal-title {
-            margin-left: 15px;
-            font-weight: bold;
-            color: #333;
-            font-size: 14px;
-        }
-
-        /* Isi Terminal */
-        .terminal-body {
-            padding: 20px;
-            color: #008000; /* Teks Hijau Gelap biar kebaca di background putih */
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .prompt { color: #000000; font-weight: bold; } /* Teks root hitam */
-        .highlight { background-color: #00cc00; color: #ffffff; padding: 0 4px; font-weight: bold;}
-        
-        a { color: #008000; text-decoration: none; border-bottom: 1px dashed #008000; font-weight: bold;}
-        a:hover { background-color: #008000; color: #ffffff; }
-
-        /* ASCII Art Hacker */
-        .ascii-art {
-            font-size: 12px;
-            white-space: pre;
-            color: #00cc00;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-align: left;
-            overflow-x: auto;
-        }
-
-        /* Efek Ngetik & Kursor */
-        #typewriter { white-space: pre-wrap; margin-bottom: 15px; font-weight: bold;}
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 1.2em;
-            background-color: #00cc00;
-            vertical-align: middle;
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-        /* Garis pemisah hacker */
-        .divider { border-top: 1px dashed #00cc00; margin: 15px 0; }
     </style>
 </head>
 <body>
 
-    <div class="terminal-window">
-        <!-- Bagian Atas Terminal -->
-        <div class="terminal-header">
-            <div class="buttons">
-                <div class="btn red"></div>
-                <div class="btn yellow"></div>
-                <div class="btn green"></div>
-            </div>
-            <div class="terminal-title">root@askerizo:~ /portfolio</div>
+    <nav>
+        <div class="logo">Askerizo.</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
+    </nav>
 
-        <!-- Bagian Dalam Terminal -->
-        <div class="terminal-body">
-            
-            <div class="ascii-art">
-    ___   _____ __ __ __________ 
-   /   | / ___// //_// ____/ __ \
-  / /| | \__ \/ ,<  / __/ / /_/ /
- / ___ |___/ / /| |/ /___/ _, _/ 
-/_/  |_/____/_/ |_/_____/_/ |_|  
-            </div>
-
-            <div id="typewriter"></div>
-            <span class="cursor" id="cursor-main"></span>
-
-            <!-- Konten Utama (Awalnya disembunyikan sampai animasi ngetik selesai) -->
-            <div id="main-content" style="display: none;">
-                
-                <p><span class="prompt">askerizo@system:~$</span> whoami</p>
-                <p>Hello, I'm <span class="prompt">Dimas Reksa Pradityo</span>.<br>
-                A Developer & Automation Enthusiast focused on building intelligent systems.</p>
-                
-                <div class="divider"></div>
-
-                <p><span class="prompt">askerizo@system:~$</span> ls -la ./skills</p>
-                <p>
-                    <span class="highlight">Python</span> &nbsp;&nbsp; Bot Automation, Discord.py, AI API Integrations<br>
-                    <span class="highlight">Bash</span> &nbsp;&nbsp;&nbsp;&nbsp; Shell Scripting, VPS Management & Server Deployments<br>
-                    <span class="highlight">Web</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JavaScript, HTML, CSS<br>
-                    <span class="highlight">DB</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQLite, Data Management
-                </p>
-
-                <div class="divider"></div>
-
-                <p><span class="prompt">askerizo@system:~$</span> cat projects.txt</p>
-                <p>
-                    <b>[1] Multi-Model AI Discord Bot</b><br>
-                    Engineered a persistent Discord bot featuring a dynamic AI fallback mechanism (example; random model Ai). Includes custom API tracking and JSON-based scheduling logic.
-                </p>
-                <p>
-                    <b>[2] Script Automation & Logic</b><br>
-                    Developed performance-optimized Lua scripts (Games), focusing on editing and add features for player (Exploit).
-                </p>
-                <p>
-                    <b>[3] Asker Apparel Operations</b><br>
-                    Managed digital payment integrations (QRIS) and operational workflows for a growing brand project.
-                </p>
-
-                <div class="divider"></div>
-
-                <p><span class="prompt">askerizo@system:~$</span> ./connect.sh</p>
-                <p>
-                    > [<a href="https://github.com/Askerizo">GitHub</a>]<br>
-                    > [<a href="https://discordapp.com/users/973966560110715000">Discord</a>]<br>
-                    > [<a href="https://www.instagram.com/eenvyexe">Instagram</a>]<br>
-                    > [<a href="https://wa.me/6285695378326">WhatsApp</a>]<br>
-                    > [<a href="mailto:askerizors@gmail.com">Email Me</a>]
-                </p>
-
-                <p><span class="prompt">askerizo@system:~$</span> <span class="cursor"></span></p>
-            </div>
-
+    <header id="home">
+        <div class="badge">Full-Stack Automation Developer</div>
+        <h1>Hi, I'm <span>Asker</span></h1>
+        <p class="description">
+            I build modern automation systems, responsive bots, and clean digital workflows. Focusing on cutting-edge logic and efficient integrations.
+        </p>
+        <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">View My Work →</a>
+            <a href="https://wa.me/6285695378326" class="btn btn-secondary">Contact Me</a>
         </div>
-    </div>
+    </header>
 
-    <!-- Script Animasi Ngetik -->
-    <script>
-        const text = "> Initializing secure connection...\n> Bypassing mainframe...\n> Access Granted.\n> Welcome to the system.";
-        let i = 0;
-        const speed = 40; // Kecepatan ngetik
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Multi-Model AI Bot</h3>
+                <p>Engineered a persistent Discord bot featuring a dynamic AI fallback mechanism with custom API tracking.</p>
+                <div class="tags">
+                    <span class="tag">#Python</span>
+                    <span class="tag">#Discord.py</span>
+                    <span class="tag">#AI</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Script Automation</h3>
+                <p>Developed performance-optimized Lua scripts for gaming exploits, focusing on feature-rich player enhancements.</p>
+                <div class="tags">
+                    <span class="tag">#Lua</span>
+                    <span class="tag">#Exploit</span>
+                    <span class="tag">#Logic</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Brand Operations</h3>
+                <p>Managed digital payment integrations and operational workflows for Asker Apparel brand development.</p>
+                <div class="tags">
+                    <span class="tag">#QRIS</span>
+                    <span class="tag">#Workflow</span>
+                    <span class="tag">#Management</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function typeWriter() {
-            if (i < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            } else {
-                // Sembunyiin kursor utama, tampilin konten
-                document.getElementById("cursor-main").style.display = 'none';
-                document.getElementById("main-content").style.display = 'block';
-            }
-        }
-
-        // Jalankan script saat web dibuka
-        window.onload = function() {
-            setTimeout(typeWriter, 600);
-        };
-    </script>
+    <footer id="contact">
+        <div class="social-icons">
+            <a href="https://github.com/Askerizo">GitHub</a>
+            <a href="https://discordapp.com/users/973966560110715000">Discord</a>
+            <a href="https://www.instagram.com/eenvyexe">Instagram</a>
+        </div>
+        <p>&copy; 2026 Askerizo. Powered by Coffee and Python.</p>
+    </footer>
 
 </body>
 </html>
